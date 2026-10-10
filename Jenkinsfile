@@ -1,21 +1,23 @@
+
 pipeline {
     agent any
 
     stages {
-        stage('downloadcode/ checkout code') {
+        stage('Checkout Code') {
             steps {
                 checkout scm
             }
         }
-        stage('downloadcode/ checkout codeshow python version') {
+
+        stage('Show Python Version') {
             steps {
-                "python3 --version"
+                sh 'python3 --version'
             }
         }
 
-        stage('run python program') {
+        stage('Run Python Program') {
             steps {
-                sh "python3 read.py"
+                sh 'python3 read.py'
             }
         }
     }
